@@ -5,7 +5,7 @@
 	<ng-sidebar [(opened)]="opened" position="right">
 
         <!--button class="demo-control" (click)="toggleSidebar()">Close sidebar</button-->
-        <button (click)="toggleSidebar()">
+        <button class="close-button" (click)="toggleSidebar()">
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
             <title>
               close
@@ -14,6 +14,7 @@
             <path d="M17.07 4.34L4.34 17.07l-1.41-1.41L15.66 2.93z"/>
           </g></svg>
         </button>
+        <!-- <p>Close</p>
         <p><a closeSidebar>This will close the sidebar too</a></p>
 
         <hr>
@@ -21,18 +22,26 @@
         <p>Throwup on your pillow.</p>
         <p>Steal the warm chair right after you get up.</p>
         <p>Use lap as chair hide head under blanket.</p>
-        <p>Walk on car leaving trail of paw prints on hood.</p>
+        <p>Walk on car leaving trail of paw prints on hood. hsjs fjsldfjlsd djflksdfl jfsjdfskj</p>
         <p>Steal the warm chair right after you get up.</p>
 		<ul>
 			<li>Menu Item</li>
 			<li>Menu Item</li>
 			<li>Menu Item</li>
-    </ul>
+    </ul> -->
 
-    <div *ngFor="let day of daysArray" class="day-cards" style="padding: 10px; height: 10px; width: 50%; background-color: cadetblue; margin: 20px; text-align: center;">
-      Day {{day}}
+    <div *ngFor="let day of daysArray" (click)="openTasks($event, day)">
+      <button  class="day-buttons" >
+        Day {{day}}
+      </button>
     </div>
-
+    <br>
+    <button class="add-button" (click)="addDay()">
+      <svg xmlns="http://www.w3.org/2000/svg" width="40" height="20" viewBox="0 0 20 20">
+        <title>add</title>
+        <path d="M16 9h-5V4H9v5H4v2h5v5h2v-5h5V9z"/>
+      </svg>      
+    </button>
 
     <!-- <div [formGroup]="orderForm">
       <div formArrayName="items"
@@ -57,6 +66,10 @@
       <div style="flex: 2;"></div>
       <button (click)="toggleSidebar()" class="demo-header__toggle">Menu</button>
     </header>
+
+    <div>
+      <h1>Welcome!</h1>
+    </div>
 	</div>
 
 </ng-sidebar-container>

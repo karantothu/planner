@@ -15,7 +15,7 @@ export class AppComponent implements OnInit {
   orderForm: FormGroup;
   items: FormArray;
 
-  daysArray:any = [1, 2, 3];
+  daysArray:any = [1];
 
   ngOnInit() {
     this.orderForm = this.formBuilder.group({
@@ -40,5 +40,18 @@ export class AppComponent implements OnInit {
 
   toggleSidebar() {
     this.opened = !this.opened;
+  }
+
+  getRandomColor() {
+    var color = Math.floor(0x1000000 * Math.random()).toString(16);
+    return '#' + ('000000' + color).slice(-6);
+  }
+
+  addDay() {
+    this.daysArray.push(this.daysArray.length+1);
+  }
+
+  openTasks(event, day){
+    console.log(day)
   }
 }
