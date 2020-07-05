@@ -1,0 +1,31 @@
+
+<section>
+    <div class="task-input-form">
+        <input placeholder="Enter Text Here" type="text">
+        <button>
+            <p style="color: white;">+</p>
+        </button>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <div *ngFor="let task of tasksList" class="row card-view">
+            <table>
+                <tr>
+                    <td style="width: 70%;"><p>{{task.title}}</p></td>
+                    <td>
+                        <button>
+                            <p style="color: white;">X</p>
+                        </button>
+                    </td>
+                    <td>
+                        <button (click)="saveFormDataFunc('yes')">
+                            <p style="color: white;">{{task.status ? 'UNDO' : '✓'}}</p>
+                        </button>
+                    </td>
+                </tr>
+            </table>                
+        </div>
+    </div>
+</section>
