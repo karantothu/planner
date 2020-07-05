@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { DataService } from '../services/data.service';
 
 @Component({
   selector: 'app-task-view',
@@ -7,14 +8,29 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TaskViewComponent implements OnInit {
 
-  constructor() { }
+  constructor( private myservice: DataService) { }
 
-  currentDay: number =0;
+  taskContent: string;
 
-  tasksList: any = [{id:1, title: 'TASK NAME', status:true}]
+  @Input() props: {taskList:any; currentDay: any};
+  
+
 
   ngOnInit(): void {
-    console.log(this.tasksList)
+    //this.tasksList = this.myservice.getTasks();
+  }
+
+  addTaskTolist(){
+    this.myservice.addTask( this.taskContent, this.props.currentDay);
+  }
+
+  deleteTask(id){
+    console.log(id)
+    this.myservice.deleteTask(this.props.currentDay, id);
+  }
+
+  setTaskStatus(id, status){
+    this.myservice.setTaskStatus(this.props.currentDay, id, status);
   }
 
 }

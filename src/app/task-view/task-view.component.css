@@ -1,5 +1,6 @@
 .task-input-form{
     text-align: center;
+    margin-top: 30px;
 
 }
 
@@ -8,6 +9,7 @@ input{
     height: 45px;
     border: 1px solid black;
     margin-bottom: 40px;
+    text-align: center;
 }
 
 input::-webkit-input-placeholder {
@@ -34,3 +36,7 @@ button{
     margin: auto;
     margin-top: 10px;
 }
+
+.strikethrough {
+    text-decoration: line-through;
+  }

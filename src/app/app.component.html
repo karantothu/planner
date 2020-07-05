@@ -30,7 +30,7 @@
 			<li>Menu Item</li>
     </ul> -->
 
-    <div *ngFor="let day of daysArray" (click)="openTasks($event, day)">
+    <div *ngFor="let day of daysArray" (click)="setDay($event, day); getTasks()">
       <button  class="day-buttons" >
         Day {{day}}
       </button>
@@ -68,8 +68,8 @@
     </header>
 
     <div>
-      <h1>Welcome!</h1>
-      <app-task-view></app-task-view>
+      <h1 *ngIf="myProps.currentDay==0">Welcome!</h1>
+      <app-task-view [props]="myProps"></app-task-view>
     </div>
 	</div>
 

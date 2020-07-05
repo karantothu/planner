@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, FormArray } from '@angular/forms';
+import { DataService }  from './services/data.service';
 
 @Component({
   selector: 'app-root',
@@ -7,35 +7,19 @@ import { FormBuilder, FormGroup, FormArray } from '@angular/forms';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  constructor(private formBuilder: FormBuilder) {}
+  constructor( private mysevice: DataService) {}
 
   title = 'Planner';
   opened: boolean = false;
 
-  orderForm: FormGroup;
-  items: FormArray;
-
   daysArray:any = [1];
 
+  tasksList: any =[];
+
+  myProps = { taskList:[], currentDay: 0};
+
   ngOnInit() {
-    this.orderForm = this.formBuilder.group({
-      customerName: '',
-      email: '',
-      items: this.formBuilder.array([ this.createItem() ])
-    });
-  }
-
-  createItem(): FormGroup {
-    return this.formBuilder.group({
-      name: '',
-      description: '',
-      price: ''
-    });
-  }
-
-  addItem(): void {
-    this.items = this.orderForm.get('items') as FormArray;
-    this.items.push(this.createItem());
+    
   }  
 
   toggleSidebar() {
@@ -48,10 +32,18 @@ export class AppComponent implements OnInit {
   }
 
   addDay() {
-    this.daysArray.push(this.daysArray.length+1);
+    const intDay = this.daysArray.length+1;
+    this.daysArray.push(intDay);
+    this.mysevice.addDayToTasks(intDay)
   }
 
-  openTasks(event, day){
-    console.log(day)
+  setDay(event, day){
+    this.mysevice.setCurrentDay(day)
+    this.myProps.currentDay= this.mysevice.getCurrentDay();
+  }
+
+  getTasks(){
+    this.myProps.taskList = this.mysevice.getTasks();
+    console.log(this.myProps.taskList)
   }
 }

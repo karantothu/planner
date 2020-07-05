@@ -6,6 +6,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TaskViewComponent } from './task-view/task-view.component';
+import { DataService } from './services/data.service'
 
 @NgModule({
   declarations: [
@@ -19,7 +20,9 @@ import { TaskViewComponent } from './task-view/task-view.component';
     ReactiveFormsModule,
     FormsModule
   ],
-  providers: [],
+  providers: [
+    DataService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

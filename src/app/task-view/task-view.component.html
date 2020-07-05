@@ -1,8 +1,8 @@
 
 <section>
-    <div class="task-input-form">
-        <input placeholder="Enter Text Here" type="text">
-        <button>
+    <div *ngIf="props.currentDay!=0" class="task-input-form">
+        <input placeholder="Enter Text Here" [(ngModel)]="taskContent" type="text">
+        <button (click)="addTaskTolist()">
             <p style="color: white;">+</p>
         </button>
     </div>
@@ -10,18 +10,18 @@
 
 <section>
     <div class="container">
-        <div *ngFor="let task of tasksList" class="row card-view">
+        <div *ngFor="let task of props.taskList" class="row card-view">
             <table>
                 <tr>
-                    <td style="width: 70%;"><p>{{task.title}}</p></td>
+                    <td [ngClass]="!task.status ? 'null' : 'strikethrough'" style="width: 70%;"><p>{{task.title}}</p></td>
                     <td>
-                        <button>
+                        <button (click)="deleteTask(task.id)">
                             <p style="color: white;">X</p>
                         </button>
                     </td>
                     <td>
-                        <button (click)="saveFormDataFunc('yes')">
-                            <p style="color: white;">{{task.status ? 'UNDO' : '✓'}}</p>
+                        <button (click)="setTaskStatus(task.id, task.status)">
+                            <p style="color: white;">{{task.status ? 'undo' : '✓'}}</p>
                         </button>
                     </td>
                 </tr>
