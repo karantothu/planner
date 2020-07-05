@@ -4,31 +4,16 @@
 	<!-- A sidebar -->
 	<ng-sidebar [(opened)]="opened" position="right">
 
-        <!--button class="demo-control" (click)="toggleSidebar()">Close sidebar</button-->
-        <button class="close-button" (click)="toggleSidebar()">
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
-            <title>
-              close
-            </title><g fill="#d33">
-            <path d="M4.34 2.93l12.73 12.73-1.41 1.41L2.93 4.35z"/>
-            <path d="M17.07 4.34L4.34 17.07l-1.41-1.41L15.66 2.93z"/>
-          </g></svg>
-        </button>
-        <!-- <p>Close</p>
-        <p><a closeSidebar>This will close the sidebar too</a></p>
-
-        <hr>
-
-        <p>Throwup on your pillow.</p>
-        <p>Steal the warm chair right after you get up.</p>
-        <p>Use lap as chair hide head under blanket.</p>
-        <p>Walk on car leaving trail of paw prints on hood. hsjs fjsldfjlsd djflksdfl jfsjdfskj</p>
-        <p>Steal the warm chair right after you get up.</p>
-		<ul>
-			<li>Menu Item</li>
-			<li>Menu Item</li>
-			<li>Menu Item</li>
-    </ul> -->
+    <!--button class="demo-control" (click)="toggleSidebar()">Close sidebar</button-->
+    <button class="close-button" (click)="toggleSidebar()">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+        <title>
+          close
+        </title><g fill="#d33">
+        <path d="M4.34 2.93l12.73 12.73-1.41 1.41L2.93 4.35z"/>
+        <path d="M17.07 4.34L4.34 17.07l-1.41-1.41L15.66 2.93z"/>
+      </g></svg>
+    </button>
 
     <div *ngFor="let day of daysArray" (click)="setDay($event, day); getTasks()">
       <button  class="day-buttons" >
@@ -42,19 +27,6 @@
         <path d="M16 9h-5V4H9v5H4v2h5v5h2v-5h5V9z"/>
       </svg>      
     </button>
-
-    <!-- <div [formGroup]="orderForm">
-      <div formArrayName="items"
-        *ngFor="let item of orderForm.controls.items['controls']; let i = index;">
-        <div [formGroupName]="i">
-          <input formControlName="name" placeholder="Item name">
-          <input formControlName="description" placeholder="Item description">
-          <input formControlName="price" placeholder="Item price">
-        </div>
-
-        Chosen name: {{ orderForm.controls.items.controls[i].controls.name.value }}
-      </div>
-    </div> -->
     
 	</ng-sidebar>
 

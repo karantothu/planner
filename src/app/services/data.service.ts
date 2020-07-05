@@ -7,7 +7,7 @@ export class DataService {
 
   tasks = { 
     1:[
-      { id:'vInOd', title:'TASK NAME1', status: true}
+      { id:'vInOd', title:'Angular Assignment', status: true}
     ]
   };
 
@@ -32,7 +32,7 @@ export class DataService {
 
   addDayToTasks(day){
     this.tasks[day]=[];
-    console.log(this.tasks)
+    //console.log(this.tasks)
   }
 
   addTask(content, day){
@@ -48,7 +48,7 @@ export class DataService {
   }
 
   deleteTask(day, id){
-    console.log(day, id);
+    //console.log(day, id);
     this.tasks[day].forEach( (item, index) => {
       if(item.id === id) this.tasks[day].splice(index,1);
     });    

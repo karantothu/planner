@@ -10,7 +10,7 @@ export class TaskViewComponent implements OnInit {
 
   constructor( private myservice: DataService) { }
 
-  taskContent: string;
+  taskContent: string ='Empty';
 
   @Input() props: {taskList:any; currentDay: any};
   
@@ -25,7 +25,7 @@ export class TaskViewComponent implements OnInit {
   }
 
   deleteTask(id){
-    console.log(id)
+    //console.log(id)
     this.myservice.deleteTask(this.props.currentDay, id);
   }
 

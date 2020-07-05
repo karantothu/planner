@@ -13,7 +13,6 @@ export class AppComponent implements OnInit {
   opened: boolean = false;
 
   daysArray:any = [1];
-
   tasksList: any =[];
 
   myProps = { taskList:[], currentDay: 0};
@@ -24,11 +23,6 @@ export class AppComponent implements OnInit {
 
   toggleSidebar() {
     this.opened = !this.opened;
-  }
-
-  getRandomColor() {
-    var color = Math.floor(0x1000000 * Math.random()).toString(16);
-    return '#' + ('000000' + color).slice(-6);
   }
 
   addDay() {
@@ -44,6 +38,7 @@ export class AppComponent implements OnInit {
 
   getTasks(){
     this.myProps.taskList = this.mysevice.getTasks();
-    console.log(this.myProps.taskList)
+    //console.log(this.myProps.taskList)
   }
+
 }
